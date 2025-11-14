@@ -1,0 +1,4 @@
+// settings.json VSCode
+{
+  "editor.formatOnSave": true,
+}

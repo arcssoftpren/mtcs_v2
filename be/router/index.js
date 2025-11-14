@@ -1,0 +1,42 @@
+const express = require("express");
+const router = express.Router();
+const auth = require("./auth");
+const tools = require("./tools");
+
+router.post("/auth/login", auth.login);
+router.post("/auth", auth.getUserData);
+router.post("/auth/addrole", auth.addRole);
+router.post("/auth/getroles", auth.getRoles);
+router.post("/auth/editrole", auth.editRole);
+router.post("/auth/deleterole", auth.deleteRole);
+router.post("/auth/createuser", auth.createUser);
+router.post("/auth/getusers", auth.getUsers);
+router.post("/auth/getsignfile", auth.getSignFile);
+router.post("/auth/edituser", auth.editUser);
+router.post("/auth/deleteuser", auth.deleteUser);
+
+router.post("/tools/createheader", tools.createHeader);
+router.post("/tools/getheaders", tools.getHeaders);
+router.post("/tools/deleteheader", tools.deleteHeader);
+router.post("/tools/createrank", tools.createToolRank);
+router.post("/tools/getranks", tools.getRanks);
+router.post("/tools/deleterank", tools.deleteRank);
+router.post("/tools/createtype", tools.createType);
+router.post("/tools/gettypes", tools.getTypes);
+router.post("/tools/deletetype", tools.deleteType);
+router.post("/tools/getlogics", tools.getLogics);
+router.post("/tools/add", tools.addTool);
+router.get("/tools", tools.getTools);
+router.post("/tools/images", tools.getToolsImages);
+router.post("/tools/delete", tools.deleteTool);
+
+router.post("/inspections", tools.getInspections);
+router.post("/inspections/update", tools.updateInspection);
+router.post("/inspections/delete", tools.deleteInspection);
+router.get("/inspections/test_leader", tools.genBatch_leader);
+router.get("/inspections/test", tools.genBatch);
+router.post("/inspections/reports", tools.genBatch_leader_nosave);
+router.post("/inspections/reports/confirm", tools.confirmReport);
+router.post("/inspections/reports/spv", tools.genBatch_spv);
+router.post("/tools/getdocnum", tools.getDocNum);
+module.exports = router;
